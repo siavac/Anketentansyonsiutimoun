@@ -20,6 +20,16 @@ body{
     padding:20px;
 }
 
+/* 🔥 SA ENPÒTAN POU PA KOUPE TEKS */
+textarea{
+    width:100%;
+    min-height:80px;
+    resize:none;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+
 .header{
     text-align:center;
 }
@@ -33,14 +43,14 @@ h2{
 }
 
 .question{
-    margin-top:12px;
+    margin-top:15px;
     font-weight:bold;
+    page-break-inside: avoid;
 }
 
-textarea{
-    width:100%;
-    height:60px;
-    margin-top:5px;
+/* 🔥 PA KOUPE BLOK YO */
+.block{
+    page-break-inside: avoid;
 }
 
 button{
@@ -50,6 +60,7 @@ button{
     color:white;
     border:none;
     margin-top:20px;
+    font-size:16px;
 }
 </style>
 </head>
@@ -65,66 +76,107 @@ button{
 
 <h2>FÒMILÈ VERIFIKASYON TIMOUN</h2>
 
-<!-- KESYON YO -->
+<p><b>Enstriksyon:</b> Ranpli tout kestyon yo san kite anyen vid.</p>
+
+<div class="block">
 <div class="question">1. Poukisa ou bezwen pran yon timoun?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">2. Poukisa ou chwazi yon timoun ki pa fanmi ou?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">3. Poukisa ou vle timoun nan rete lakay ou?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">4. Ki laj timoun nan?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">5. Ki sa ou pral fè pou timoun nan?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">6. Ki kote timoun nan pral rete?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">7. Èske ou marye?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">8. Ki travay ou fè?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">9. Ki kote ou rete?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">10. Èske ou deja pran swen yon lòt timoun?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">11. Poukisa ou mande batistè timoun nan?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">12. Kopi oswa orijinal?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">13. Èske ou pral mennen timoun nan lòt kote?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">14. Èske paran an ka wè pitit li?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">15. Ki moun ki ka temwaye sou ou?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">16. Poukisa ou ofri lajan?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">17. Èske ou dakò pou tout bagay fèt legalman?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">18. Èske paran an ka vizite lakay ou?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">19. Kijan ou pral pran swen timoun nan?</div>
 <textarea></textarea>
+</div>
 
+<div class="block">
 <div class="question">20. Poukisa ou pa ede timoun nan lakay paran li?</div>
 <textarea></textarea>
+</div>
 
 <button onclick="generatePDF()">📄 Telechaje PDF SIAVAC</button>
 
@@ -136,11 +188,11 @@ function generatePDF(){
     const element = document.getElementById("form");
 
     const opt = {
-        margin: 0.3,
-        filename: 'SIAVAC_Verifikasyon_Timoun.pdf',
+        margin: 0.4,
+        filename: 'SIAVAC_Verifikasyon_Profesyonel.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: {
-            scale: 2,
+            scale: 3,
             useCORS: true,
             scrollY: 0
         },

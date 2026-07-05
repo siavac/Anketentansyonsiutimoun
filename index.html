@@ -2,35 +2,30 @@
 <html lang="ht">
 <head>
 <meta charset="UTF-8">
-<title>SIAVAC - Fòmilè Verifikasyon Timoun</title>
+<title>SIAVAC - Verifikasyon Timoun</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
 body {
     font-family: Arial;
-    background: #f4f4f4;
+    background: #eee;
     padding: 20px;
 }
 
 .container {
     background: white;
-    padding: 20px;
+    padding: 25px;
     max-width: 900px;
     margin: auto;
-    border-radius: 10px;
+}
+
+.header {
+    text-align: center;
 }
 
 .logo {
-    text-align: center;
-}
-
-.logo img {
     width: 120px;
-}
-
-h2 {
-    text-align: center;
 }
 
 .question {
@@ -38,40 +33,34 @@ h2 {
     font-weight: bold;
 }
 
-textarea, input {
+textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    height: 60px;
 }
-
 button {
     margin-top: 20px;
     padding: 10px;
     background: green;
     color: white;
-    border: none;
-    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="form">
+<div class="container" id="content">
 
-<div class="logo">
-    <img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg" alt="SIAVAC Logo">
+<div class="header">
+    <img id="logo" class="logo" src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg">
     <h3>SIAVAC - Service Intelligence Antivol Anti-Crime</h3>
 </div>
 
-<h2>FÒMILÈ VERIFIKASYON ENTANSYON SOU TIMOUN</h2>
-
-<p><b>Enstriksyon:</b> Ranpli fòm sa ak tout repons moun nan bay pandan entèvyou a.</p>
+<h2>FÒMILÈ VERIFIKASYON TIMOUN</h2>
 
 <div class="question">1. Poukisa ou bezwen pran yon timoun?</div>
 <textarea></textarea>
 
-<div class="question">2. Poukisa ou chwazi yon timoun ki pa nan fanmi ou?</div>
+<div class="question">2. Poukisa ou chwazi yon timoun ki pa fanmi ou?</div>
 <textarea></textarea>
 
 <div class="question">3. Poukisa ou vle timoun nan rete lakay ou?</div>
@@ -80,64 +69,41 @@ button {
 <div class="question">4. Ki laj timoun w ap chèche a?</div>
 <textarea></textarea>
 
-<div class="question">5. Ki sa ou pral fè pou timoun nan?</div>
+<div class="question">5. Ki kote timoun nan pral rete?</div>
 <textarea></textarea>
 
-<div class="question">6. Ki kote timoun nan pral rete?</div>
-<textarea></textarea>
-
-<div class="question">7. Èske ou marye? Èske gen lòt moun k ap viv lakay ou?</div>
-<textarea></textarea>
-
-<div class="question">8. Ki travay ou fè?</div>
-<textarea></textarea>
-
-<div class="question">9. Ki kote ou rete egzakteman?</div>
-<textarea></textarea>
-
-<div class="question">10. Èske ou deja pran swen yon lòt timoun anvan?</div>
-<textarea></textarea>
-
-<div class="question">11. Poukisa ou mande batistè timoun nan?</div>
-<textarea></textarea>
-
-<div class="question">12. Èske ou vle orijinal batistè a oswa yon kopi?</div>
-<textarea></textarea>
-
-<div class="question">13. Èske ou gen entansyon mennen timoun nan ale lòt kote?</div>
-<textarea></textarea>
-
-<div class="question">14. Èske paran timoun nan ap ka wè pitit yo nenpòt lè?</div>
-<textarea></textarea>
-
-<div class="question">15. Ki moun ki ka temwaye sou bon repitasyon ou?</div>
-<textarea></textarea>
-
-<div class="question">16. Poukisa ou te ofri lajan?</div>
-<textarea></textarea>
-
-<div class="question">17. Èske ou dakò pou tout bagay fèt legalman?</div>
-<textarea></textarea>
-
-<div class="question">18. Èske ou dakò pou paran an vizite lakay ou?</div>
-<textarea></textarea>
-
-<div class="question">19. Ki jan ou pral peye lekòl ak swen timoun nan?</div>
-<textarea></textarea>
-
-<div class="question">20. Poukisa ou pa ede timoun nan pandan li rete lakay paran li?</div>
-<textarea></textarea>
-
-<br>
-
-<button onclick="downloadPDF()">Telechaje PDF</button>
+<button onclick="generatePDF()">Telechaje PDF</button>
 
 </div>
 
 <script>
-function downloadPDF() {
-    const element = document.getElementById("form");
-    html2pdf().from(element).save("SIAVAC_Verifikasyon_Timoun.pdf");
+async function generatePDF() {
+
+    const logo = document.getElementById("logo");
+
+    // 🔥 KONVÈTI LOGO A NAN BASE64 (sa rezoud pwoblèm nan)
+    const toDataURL = url => fetch(url)
+        .then(res => res.blob())
+        .then(blob => new Promise(resolve => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(blob);
+        }));
+
+    const base64 = await toDataURL(logo.src);
+    logo.src = base64;
+
+    const element = document.getElementById("content");
+
+    const opt = {
+        margin: 0.5,
+        filename: 'SIAVAC_Verifikasyon.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
 }
 </script>
 

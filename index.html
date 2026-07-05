@@ -9,15 +9,16 @@
 <style>
 body {
     font-family: Arial;
-    background: #eee;
+    background: #f0f0f0;
     padding: 20px;
 }
 
 .container {
     background: white;
     padding: 25px;
-    max-width: 900px;
+    max-width: 950px;
     margin: auto;
+    border-radius: 10px;
 }
 
 .header {
@@ -28,6 +29,11 @@ body {
     width: 120px;
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .question {
     margin-top: 15px;
     font-weight: bold;
@@ -36,12 +42,17 @@ body {
 textarea {
     width: 100%;
     height: 60px;
+    margin-top: 5px;
 }
+
 button {
     margin-top: 20px;
-    padding: 10px;
+    padding: 12px;
     background: green;
     color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 </style>
 </head>
@@ -55,12 +66,14 @@ button {
     <h3>SIAVAC - Service Intelligence Antivol Anti-Crime</h3>
 </div>
 
-<h2>FÒMILÈ VERIFIKASYON TIMOUN</h2>
+<h2>FÒMILÈ VERIFIKASYON ENTANSYON SOU TIMOUN</h2>
+
+<p><b>Enstriksyon:</b> Ranpli tout kestyon yo pandan entèvyou a.</p>
 
 <div class="question">1. Poukisa ou bezwen pran yon timoun?</div>
 <textarea></textarea>
 
-<div class="question">2. Poukisa ou chwazi yon timoun ki pa fanmi ou?</div>
+<div class="question">2. Poukisa ou chwazi yon timoun ki pa nan fanmi ou?</div>
 <textarea></textarea>
 
 <div class="question">3. Poukisa ou vle timoun nan rete lakay ou?</div>
@@ -69,20 +82,64 @@ button {
 <div class="question">4. Ki laj timoun w ap chèche a?</div>
 <textarea></textarea>
 
-<div class="question">5. Ki kote timoun nan pral rete?</div>
+<div class="question">5. Ki sa ou pral fè pou timoun nan?</div>
 <textarea></textarea>
 
-<button onclick="generatePDF()">Telechaje PDF</button>
+<div class="question">6. Ki kote timoun nan pral rete?</div>
+<textarea></textarea>
+
+<div class="question">7. Èske ou marye? Èske gen lòt moun k ap viv lakay ou?</div>
+<textarea></textarea>
+
+<div class="question">8. Ki travay ou fè?</div>
+<textarea></textarea>
+
+<div class="question">9. Ki kote ou rete egzakteman?</div>
+<textarea></textarea>
+
+<div class="question">10. Èske ou deja pran swen yon lòt timoun anvan?</div>
+<textarea></textarea>
+
+<div class="question">11. Poukisa ou mande batistè timoun nan?</div>
+<textarea></textarea>
+
+<div class="question">12. Èske ou vle orijinal batistè a oswa yon kopi?</div>
+<textarea></textarea>
+
+<div class="question">13. Èske ou gen entansyon mennen timoun nan ale lòt kote (vil/peyi)?</div>
+<textarea></textarea>
+
+<div class="question">14. Èske paran timoun nan ap ka wè pitit yo nenpòt lè?</div>
+<textarea></textarea>
+
+<div class="question">15. Ki moun ki ka temwaye sou bon repitasyon ou?</div>
+<textarea></textarea>
+
+<div class="question">16. Poukisa ou te ofri lajan?</div>
+<textarea></textarea>
+
+<div class="question">17. Èske ou dakò pou tout aranjman fèt legalman oswa devan otorite?</div>
+<textarea></textarea>
+
+<div class="question">18. Èske ou dakò pou paran timoun nan vizite lakay ou anvan desizyon?</div>
+<textarea></textarea>
+
+<div class="question">19. Ki jan ou pral peye lekòl, manje ak swen timoun nan?</div>
+<textarea></textarea>
+
+<div class="question">20. Si ou vle ede yon timoun, poukisa ou pa ede li pandan li rete ak paran li?</div>
+<textarea></textarea>
+
+<button onclick="downloadPDF()">📄 Telechaje PDF SIAVAC</button>
 
 </div>
 
 <script>
-async function generatePDF() {
+async function downloadPDF() {
 
     const logo = document.getElementById("logo");
 
-    // 🔥 KONVÈTI LOGO A NAN BASE64 (sa rezoud pwoblèm nan)
-    const toDataURL = url => fetch(url)
+    const toBase64 = url => fetch(url)
         .then(res => res.blob())
         .then(blob => new Promise(resolve => {
             const reader = new FileReader();
@@ -90,14 +147,14 @@ async function generatePDF() {
             reader.readAsDataURL(blob);
         }));
 
-    const base64 = await toDataURL(logo.src);
+    const base64 = await toBase64(logo.src);
     logo.src = base64;
 
     const element = document.getElementById("content");
 
     const opt = {
-        margin: 0.5,
-        filename: 'SIAVAC_Verifikasyon.pdf',
+        margin: 0.4,
+        filename: 'SIAVAC_Verifikasyon_Timoun.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }

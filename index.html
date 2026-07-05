@@ -2,213 +2,142 @@
 <html lang="ht">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIAVAC Asirans Vyeyès</title>
+<title>SIAVAC - Fòmilè Verifikasyon Timoun</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-body{
-font-family:Arial;
-background:#eee;
-padding:5px;
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 20px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-background:#fff;
-padding:10px;
+.container {
+    background: white;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
 }
 
-/* 🔥 IMPORTANT FIX */
-#pdf{
-width:100%;
+.logo {
+    text-align: center;
 }
 
-/* PAGE = NO FIXED HEIGHT (SA KOTE ERÈ A TE YE) */
-.page{
-width:100%;
-padding:15px;
-box-sizing:border-box;
-page-break-after:always;
-break-after:page;
+.logo img {
+    width: 120px;
 }
 
-.page:last-child{
-page-break-after:auto;
+h2 {
+    text-align: center;
 }
 
-/* HEADER */
-.header{
-text-align:center;
-margin-bottom:10px;
+.question {
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.header img{
-width:70px;
+textarea, input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
 }
 
-.header h1{
-color:#003366;
-margin:5px 0;
-}
-
-/* BOX */
-.section{
-margin-top:12px;
-padding:10px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-.title{
-background:#003366;
-color:#fff;
-padding:6px;
-border-radius:5px;
-font-size:13px;
-}
-
-label{
-display:block;
-margin-top:8px;
-font-weight:bold;
-font-size:13px;
-}
-
-input{
-width:100%;
-padding:8px;
-margin-top:4px;
-border:1px solid #aaa;
-border-radius:6px;
-}
-
-/* BUTTON */
-button{
-width:100%;
-margin-top:15px;
-padding:12px;
-background:#003366;
-color:#fff;
-border:none;
-border-radius:6px;
-font-size:15px;
-cursor:pointer;
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="pdf">
+<div class="container" id="form">
 
-<!-- ================= PAGE 1 ================= -->
-<div class="page">
-
-<div class="header">
-<img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg">
-<h1>SIAVAC</h1>
-<h3>Dosye Asirans Vyeyès Ajan</h3>
+<div class="logo">
+    <img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg" alt="SIAVAC Logo">
+    <h3>SIAVAC - Service Intelligence Antivol Anti-Crime</h3>
 </div>
 
-<div class="section">
-<div class="title">ENFÒMASYON AJAN</div>
+<h2>FÒMILÈ VERIFIKASYON ENTANSYON SOU TIMOUN</h2>
 
-<label>ID SIAVAC</label>
-<input type="text" id="siavac_id" readonly>
+<p><b>Enstriksyon:</b> Ranpli fòm sa ak tout repons moun nan bay pandan entèvyou a.</p>
 
-<label>Non Ajan</label>
-<input type="text" placeholder="Non konplè">
+<div class="question">1. Poukisa ou bezwen pran yon timoun?</div>
+<textarea></textarea>
 
-<label>Telefòn</label>
-<input type="text">
+<div class="question">2. Poukisa ou chwazi yon timoun ki pa nan fanmi ou?</div>
+<textarea></textarea>
 
-<label>Dat Asirans Kòmanse</label>
-<input type="date">
-</div>
+<div class="question">3. Poukisa ou vle timoun nan rete lakay ou?</div>
+<textarea></textarea>
 
-</div>
+<div class="question">4. Ki laj timoun w ap chèche a?</div>
+<textarea></textarea>
 
-<!-- ================= PAGE 2 ================= -->
-<div class="page">
+<div class="question">5. Ki sa ou pral fè pou timoun nan?</div>
+<textarea></textarea>
 
-<div class="section">
-<div class="title">KONDISYON</div>
-<p>
-Ajan dwe aktif nan SIAVAC. Asirans lan kouvri sèvis li epi li ka modifye selon règ entèn.
-</p>
-</div>
+<div class="question">6. Ki kote timoun nan pral rete?</div>
+<textarea></textarea>
 
-<div class="section">
-<div class="title">DWA</div>
-<p>
-Dwa pou jwenn enfòmasyon, verifye dosye, epi resevwa benefis selon sèvis.
-</p>
-</div>
+<div class="question">7. Èske ou marye? Èske gen lòt moun k ap viv lakay ou?</div>
+<textarea></textarea>
 
-<div class="section">
-<div class="title">RESPONSABILITE</div>
-<p>
-Ajan dwe respekte règ SIAVAC epi pa bay fo enfòmasyon.
-</p>
-</div>
+<div class="question">8. Ki travay ou fè?</div>
+<textarea></textarea>
 
-</div>
+<div class="question">9. Ki kote ou rete egzakteman?</div>
+<textarea></textarea>
 
-<!-- ================= PAGE 3 ================= -->
-<div class="page">
+<div class="question">10. Èske ou deja pran swen yon lòt timoun anvan?</div>
+<textarea></textarea>
 
-<div class="section">
-<div class="title">SÈTIFIKASYON</div>
+<div class="question">11. Poukisa ou mande batistè timoun nan?</div>
+<textarea></textarea>
 
-<p>
-Mwen konfime tout enfòmasyon mwen bay yo se verite.
-</p>
+<div class="question">12. Èske ou vle orijinal batistè a oswa yon kopi?</div>
+<textarea></textarea>
 
-<label>Siyati Ajan</label>
-<input type="text">
-</div>
+<div class="question">13. Èske ou gen entansyon mennen timoun nan ale lòt kote?</div>
+<textarea></textarea>
 
-</div>
+<div class="question">14. Èske paran timoun nan ap ka wè pitit yo nenpòt lè?</div>
+<textarea></textarea>
 
-<button onclick="downloadPDF()">📄 Telechaje PDF</button>
+<div class="question">15. Ki moun ki ka temwaye sou bon repitasyon ou?</div>
+<textarea></textarea>
+
+<div class="question">16. Poukisa ou te ofri lajan?</div>
+<textarea></textarea>
+
+<div class="question">17. Èske ou dakò pou tout bagay fèt legalman?</div>
+<textarea></textarea>
+
+<div class="question">18. Èske ou dakò pou paran an vizite lakay ou?</div>
+<textarea></textarea>
+
+<div class="question">19. Ki jan ou pral peye lekòl ak swen timoun nan?</div>
+<textarea></textarea>
+
+<div class="question">20. Poukisa ou pa ede timoun nan pandan li rete lakay paran li?</div>
+<textarea></textarea>
+
+<br>
+
+<button onclick="downloadPDF()">Telechaje PDF</button>
 
 </div>
 
 <script>
-// ID OTOMATIK
-function generateID(){
-const year = new Date().getFullYear();
-const rand = Math.floor(100000 + Math.random()*900000);
-document.getElementById("siavac_id").value =
-"SIAVAC-" + year + "-" + rand;
-}
-window.onload = generateID;
-
-// PDF STABLE
-function downloadPDF(){
-const element = document.getElementById("pdf");
-
-html2pdf().set({
-margin: 5,
-filename: 'SIAVAC_Asirans.pdf',
-image: { type: 'jpeg', quality: 0.98 },
-html2canvas: {
-scale: 2,
-useCORS: true,
-scrollY: 0
-},
-jsPDF: {
-unit: 'mm',
-format: 'a4',
-orientation: 'portrait'
-},
-pagebreak: {
-mode: ['css']
-}
-}).from(element).save();
+function downloadPDF() {
+    const element = document.getElementById("form");
+    html2pdf().from(element).save("SIAVAC_Verifikasyon_Timoun.pdf");
 }
 </script>
 
